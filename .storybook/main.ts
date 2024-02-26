@@ -5,6 +5,7 @@ const config: StorybookConfig = {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
+  staticDirs: ["./assets/images"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
