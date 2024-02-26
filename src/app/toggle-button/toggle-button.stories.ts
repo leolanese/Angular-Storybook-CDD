@@ -24,20 +24,25 @@ export const Template: ToogleButtonStory = {
 export const Default: ToogleButtonStory = {
   ...Template,
   args: {
-    isToggled: false
-  },
+    isToggled: false,
+    label: 'default',
+    isDisabled: true
+  }
 }
 
 export const Checked: ToogleButtonStory = {
     ...Template,
     args: {
-      isToggled: true
+      isToggled: true,
+      label: 'checked',
+      isDisabled: false
     },
   }
   
 export const Disabled: ToogleButtonStory = {
     ...Template,
     args: {
-      isDisabled: true
+      isDisabled: true,
+      label: 'disabled'
     }
 }

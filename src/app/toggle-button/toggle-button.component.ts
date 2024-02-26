@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-toggle-button',
@@ -9,10 +9,12 @@ import { Component } from '@angular/core';
       <input type="checkbox" id="toggle" [(ngModel)]="isToggled">
       <label for="toggle"></label>
     </div>
+    {{ label }} 
   `,
   styleUrl: './toggle-button.component.scss'
 })
 export class ToggleButtonComponent {
-  isToggled = false;
-  isDisabled = false;
+  @Input() isToggled: boolean = false;
+  @Input() isDisabled: boolean = false;
+  @Input() label: string = '';
 }

@@ -25,6 +25,4 @@ export class RadioButtonComponent {
   @Input() label: string = 'radioButton';
   @Input() showError: boolean = false;
   @Input() errorMessage: string = 'radioButton';
-
-  isToggled = false;
 }

@@ -19,16 +19,28 @@ export default {
     },
   },
 } as Meta<RadioButtonComponent>;
+
 // type
 type RadioButtonStory = StoryObj<RadioButtonComponent>;
+
 // export Template
 export const Template: RadioButtonStory = {
-  args: {},
+  args: {
+  },
 };
 
-export const radioButton: RadioButtonStory = {
+export const DefaultRadioButton: RadioButtonStory = {
   ...Template,
   args: {
-    label: 'Option',
+    label: 'Default Option',
+  },
+};
+
+export const ShowErrorButton: RadioButtonStory = {
+  ...Template,
+  args: {
+    label: 'error',
+    showError: true,
+    errorMessage: 'This is an error',
   },
 };

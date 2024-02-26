@@ -126,12 +126,17 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "my-angular-storybook-project:build",
-            "compodoc": true,
+            "compodoc": false,
             "compodocArgs": [
               "-e",
               "json",
               "-d",
-              "."
+              ".",
+              "--minimal",
+              "--disablePrivate",
+              "--disableInternal",
+              "--disableSourceCode",
+              "--disableLifeCycleHooks"
             ],
             "port": 6006
           }
@@ -141,7 +146,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "my-angular-storybook-project:build",
-            "compodoc": true,
+            "compodoc": false,
             "compodocArgs": [
               "-e",
               "json",
