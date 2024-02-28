@@ -12,14 +12,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </button>
 
   <div class="card" [ngClass]="{
-                                activeClass: conditionToBeActive,
-                                inactiveClass: !conditionToBeActive}">
+                        activeClass: conditionToBeActive,
+                        inactiveClass: !conditionToBeActive}">
     {{ conditionToBeActive }}
   </div>
 
-  <div class="alert alert-{{ type }}"  role="alert">
+  <div class="alert alert-{{ type }}" role="alert">
     {{ message }}
   </div>
+
+  <button type="button" name="button" label="Log in">Show Label</button>
+  <input type="text" name="input" [(ngModel)]="label">
   `,
   styles: `
       .activeClass {
@@ -47,5 +50,6 @@ export class ButtonComponent {
       this.clicked.emit();
     }
   }
+
 }
 

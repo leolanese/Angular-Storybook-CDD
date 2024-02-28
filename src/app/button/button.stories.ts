@@ -1,11 +1,15 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 import { action } from '@storybook/addon-actions';
+import { within, userEvent, expect, fn } from '@storybook/test';
 
 export default {
   title: 'Components/Button',
   component: ButtonComponent,
-  argTypes: {
+  args: {
+    onClick: fn(),
+  },
+  argsTypes: {
     label: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     type: { control: { type: 'select', options: ['primary', 'secondary', 'terciary'] } },
@@ -58,5 +62,35 @@ export const AccentButtonStory: ButtonStory = {
   },
 };
 
+export const LoggedIn: ButtonStory = {
+  // take canvasElement as an argument
+  play: async ({ canvasElement }) => {
+    // set the scope of the test `within` 
+    const canvas = within(canvasElement);
+    
+    const showLabel = await canvas.findByText(/Show Label/i);
+  },
+};
 
+export const LoggedInWithInput: ButtonStory = {
+  // take canvasElement as an argument
+  play: async ({ canvasElement }) => {
+    // set the scope of the test `within`
+    const canvas = within(canvasElement);
 
+    const showLabel = await canvas.findByText(/Show Label/i);
+    const input = await canvas.findByRole('textbox');
+
+    // simulated the user interation click event
+    await userEvent.type(input, 'test');
+    await userEvent.click(showLabel);
+    expect(input).toHaveValue('test');
+    expect(input).not.toHaveValue('test2');
+    expect(input).not.toHaveValue('test3');
+
+    const showLabel2 = await canvas.findByText(/Show Label/i);
+    const input2 = await canvas.findByRole('textbox');
+
+    expect(canvas.getAllByRole('textbox')).toHaveLength(1);
+  }
+}
