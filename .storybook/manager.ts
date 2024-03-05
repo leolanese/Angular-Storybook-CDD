@@ -6,12 +6,12 @@ export default create({
   fontBase: '"Open Sans", sans-serif',
   fontCode: 'monospace',
 
-  brandTitle: 'My custom Storybook',
+  brandTitle: 'Angular Storybook Basic Project Setup',
   brandUrl: 'https://example.com',
   brandImage: 'https://storybook.js.org/images/placeholders/350x150.png',
   brandTarget: '_self',
 
-  //
+  // colours
   colorPrimary: '#3A10E5',
   colorSecondary: '#585C6D',
 
@@ -22,7 +22,7 @@ export default create({
   appBorderColor: '#585C6D',
   appBorderRadius: 4,
 
-  // Text colors
+  // font and text colors
   textColor: '#10162F',
   textInverseColor: '#ffffff',
 
